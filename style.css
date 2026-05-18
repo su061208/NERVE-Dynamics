@@ -106,8 +106,8 @@ p { font-weight: 300; font-size: 1.05rem; }
 .legacy-text { position: relative; z-index: 2; padding-right: 2rem; }
 .legacy-visual { position: relative; z-index: 1; }
 .heritage-gallery { position: relative; overflow: hidden; background: #e5e5e5; display: flex; }
-.karl-img { position: absolute; left: 0; top: 0; width: 55%; height: 100%; background: url('../assets/karl_benz.png') center/cover; -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%); mask-image: linear-gradient(to right, black 60%, transparent 100%); filter: contrast(1.05); }
-.car-img-overlay { position: absolute; right: 0; top: 0; width: 60%; height: 100%; background: url('../assets/benz_car.png') center/contain no-repeat; mix-blend-mode: multiply; filter: contrast(1.1); transform: scale(1.1); transform-origin: center right; }
+.karl-img { position: absolute; left: 0; top: 0; width: 55%; height: 100%; background: url('karl_benz.png') center/cover; -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%); mask-image: linear-gradient(to right, black 60%, transparent 100%); filter: contrast(1.05); }
+.car-img-overlay { position: absolute; right: 0; top: 0; width: 60%; height: 100%; background: url('benz_car.png') center/contain no-repeat; mix-blend-mode: multiply; filter: contrast(1.1); transform: scale(1.1); transform-origin: center right; }
 .giant-year { position: absolute; top: -80px; left: -60px; font-size: 16rem; font-weight: 200; color: #f4f4f5; line-height: 1; letter-spacing: -0.06em; z-index: -1; user-select: none; }
 
 /* Tech Section */
@@ -115,7 +115,7 @@ p { font-weight: 300; font-size: 1.05rem; }
 .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 10rem 2rem; border-bottom: none; }
 .tech-section h2, .tech-section h3, .tech-section .kicker { color: var(--color-white); }
 .tech-section .divider-left { background-color: rgba(255,255,255,0.2); }
-.tech-img { width: 100%; aspect-ratio: 4/5; background-color: #222; background-image: url('../assets/benz_tech_mbux_1778467379473.png'); background-size: cover; background-position: center; filter: grayscale(20%) contrast(1.1); }
+.tech-img { width: 100%; aspect-ratio: 4/5; background-color: #222; background-image: url('benz_tech_mbux_1778467379473.png'); background-size: cover; background-position: center; filter: grayscale(20%) contrast(1.1); }
 .split-title { font-size: 3rem; font-weight: 300; }
 .split-text { color: #a1a1aa; font-weight: 300; line-height: 1.8; margin-bottom: 2.5rem; }
 .feature-list { list-style: none; }
