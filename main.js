@@ -60,7 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 
-                const tagNames = { 'review': '시승기/리뷰', 'tip': '정비 팁', 'cert': '출고 인증' };
+                // HTML의 카테고리값(lifestyle, electric, service)과 기존의 시승기/리뷰 등을 통합 매핑
+                const tagNames = { 
+                    'lifestyle': '라이프스타일', 
+                    'electric': '전기차(EQ)', 
+                    'service': '서비스/관리',
+                    'review': '시승기/리뷰', 
+                    'tip': '정비 팁', 
+                    'cert': '출고 인증'
+                };
                 const tagName = tagNames[data.category] || '일반';
                 
                 let timeString = '조금 전';
@@ -75,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const itemHTML = `
                     <div class="board-item-sleek" data-category="${data.category}">
-                        <div class="board-thumb" style="background-image: url('assets/benz_hero_sedan_1778467347199.png'); filter: grayscale(80%) contrast(1.2);"></div>
+                        <div class="board-thumb" style="background-image: url('benz_hero_sedan_1778467347199.png'); filter: grayscale(80%) contrast(1.2);"></div>
                         <div class="board-summary">
                             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                                 <div>
@@ -96,11 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
             bindTagFilters();
             bindDeleteButtons();
             
+            if (window.applyTranslation) window.applyTranslation(localStorage.getItem('site_lang') || 'KO');
+            
         } catch(error) {
             console.error("Error loading posts: ", error);
             // 권한 에러 등으로 실패 시
             boardList.innerHTML = '<p style="text-align:center; padding: 2rem; color: #a1a1aa;">작성된 게시물이 없습니다. 로컬 테스트 중입니다.</p>';
             bindTagFilters(); // 최소한 이벤트는 활성화 
+            if (window.applyTranslation) window.applyTranslation(localStorage.getItem('site_lang') || 'KO');
         }
     }
 
@@ -159,11 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (docData.password === password) {
                             if(confirm("정말로 삭제하시겠습니까? 삭제된 데이터는 복구할 수 없습니다.")) {
                                 await docRef.delete();
-                                if(typeof showNotification === 'function') {
-                                    showNotification("게시글이 안전하게 삭제되었습니다.");
-                                } else {
-                                    alert("게시글이 삭제되었습니다.");
-                                }
+                                showNotification("게시글이 안전하게 삭제되었습니다.");
                                 loadPosts();
                             }
                         } else {
@@ -235,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 } catch (e) {
                     console.error("Error adding document: ", e);
-                    submitBtn.innerText = "로스터리 에러";
+                    submitBtn.innerText = "에러 발생";
                     setTimeout(() => {
                         submitBtn.innerText = origText;
                         submitBtn.disabled = false;
@@ -245,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- 5. Financial Calculator Logic ---
     const calcModel = document.getElementById('calc-model');
     const calcDownPayment = document.getElementById('calc-down-payment');
     const downPaymentLabel = document.getElementById('down-payment-val');
@@ -290,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCalculator(); // init
     }
 
-    // --- Real Google Authentication Logic ---
+    // --- 6. Google Authentication Logic ---
     let isLoggedIn = false;
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -317,50 +325,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (window.location.protocol === 'file:') {
                         isLoggedIn = false;
                         loginBtns.forEach(b => b.innerText = "LOGIN");
-                        if(typeof showNotification === 'function') showNotification("안전하게 로그아웃 되었습니다.");
+                        showNotification("안전하게 로그아웃 되었습니다.");
                         return;
                     }
                     await auth.signOut();
-                    if(typeof showNotification === 'function') showNotification("안전하게 로그아웃 되었습니다.");
+                    showNotification("안전하게 로그아웃 되었습니다.");
                 } else {
                     if (window.location.protocol === 'file:') {
                         const tempName = prompt("NERVE Dynamics 프라이빗 라운지에 입장할 닉네임을 설정해주세요:", "VIP 고객");
                         if (tempName) {
                             isLoggedIn = true;
                             loginBtns.forEach(b => b.innerText = `LOGOUT (${tempName}님)`);
-                            if(typeof showNotification === 'function') showNotification(`${tempName}님, 프라이빗 라운지에 오신 것을 환영합니다.`);
+                            showNotification(`${tempName}님, 프라이빗 라운지에 오신 것을 환영합니다.`);
                         }
                         return;
                     }
                     const result = await auth.signInWithPopup(provider);
                     const name = result.user.displayName || '회원';
-                    if(typeof showNotification === 'function') showNotification(`${name}님, 프라이빗 라운지에 오신 것을 환영합니다.`);
+                    showNotification(`${name}님, 프라이빗 라운지에 오신 것을 환영합니다.`);
                 }
             } catch(err) {
                 console.error("Login Error: ", err);
                 if(err.code === 'auth/unauthorized-domain') {
                     alert("파이어베이스 설정(승인된 도메인)에 현재 주소가 등록되지 않아 차단되었습니다.");
                 } else {
-                    if(typeof showNotification === 'function') showNotification("인증 팝업이 차단되었거나 오류가 발생했습니다.");
+                    showNotification("인증 팝업이 차단되었거나 오류가 발생했습니다.");
                 }
             }
         });
     });
 
-    // --- Test Drive Form Logic ---
+    // --- 7. Test Drive Form Logic ---
     const testDriveForm = document.getElementById('test-drive-form');
     if (testDriveForm) {
         testDriveForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             if(!isLoggedIn) {
-                if(typeof showNotification === 'function') {
-                    showNotification("회원 전용 서비스입니다. 상단의 LOGIN 버튼을 클릭해 로그인해 주세요.");
-                } else {
-                    alert("회원 전용 서비스입니다. 상단의 LOGIN 버튼을 클릭해 로그인해 주세요.");
-                }
+                showNotification("회원 전용 서비스입니다. 상단의 LOGIN 버튼을 클릭해 로그인해 주세요.");
                 return;
             }
+
+            const tdModelEl = document.getElementById('td-model');
+            const selectedModel = tdModelEl ? tdModelEl.value : '';
+            const isConcept = selectedModel === 'Vital-Class' || selectedModel === 'Morph-Class';
 
             const btn = testDriveForm.querySelector('button[type="submit"]');
             const origText = btn.innerText;
@@ -371,16 +379,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerText = origText;
                 btn.disabled = false;
                 testDriveForm.reset();
-                if(typeof showNotification === 'function') {
-                    showNotification("시승 신청이 완료되었습니다. 담당 전시장 직원이 곧 연락드릴 예정입니다.");
+                if (isConcept) {
+                    showNotification("컨셉 모델 사전 예약이 완료되었습니다. 공식 출시 시점에 가장 먼저 시승 혜택을 제공해 드리겠습니다.");
                 } else {
-                    alert("시승 신청이 완료되었습니다.");
+                    showNotification("시승 신청이 완료되었습니다. 담당 전시장 직원이 곧 연락드릴 예정입니다.");
                 }
             }, 1500);
         });
     }
 
-    // --- 6. Model Details Logic ---
+    // --- 8. Model Details Logic (Standard + Concept Models) ---
     const modelDetails = {
         "E-Class": {
             subtitle: "시간을 앞서가는 지능형 럭셔리 세단",
@@ -394,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "EQS": {
             subtitle: "내일을 향한 감각적인 움직임",
-            desc: "전기차 시대가 나아가야 할 럭셔리의 새로운 기준을 제시합니다. 공기역학적 디자인의 정수와 혁신적인 전동화 기술이 만나, 고요하면서도 폭발적인 퍼포먼스를 완성했습니다. 내연기관의 한계를 넘어선 진보된 럭셔리를 직접 경험해 보십시오.",
+            desc: "전기차 시대가 나아야 할 럭셔리의 새로운 기준을 제시합니다. 공기역학적 디자인의 정수와 혁신적인 전동화 기술이 만나, 고요하면서도 폭발적인 퍼포먼스를 완성했습니다. 내연기관의 한계를 넘어선 진보된 럭셔리를 직접 경험해 보십시오.",
             features: [
                 { title: "원-보우(One-Bow) 디자인과 공기역학의 정점", text: "활을 연상시키는 유려한 곡선의 실루엣은 양산차 최고 수준의 공기저항계수를 달성했습니다. 이는 바람의 저항을 최소화하여 압도적인 1회 충전 주행거리와 경이로운 실내 정숙성을 가능하게 합니다." },
                 { title: "MBUX 하이퍼스크린", text: "실내 전체를 가로지르는 거대한 곡선형 패널이 마치 우주선에 탑승한 듯한 감각을 선사합니다. 제로-레이어(Zero-layer) 인터페이스를 통해 복잡한 메뉴 이동 없이 필요한 기능을 직관적으로 제어할 수 있습니다." },
@@ -418,6 +426,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 { title: "시간을 초월한 아이코닉 디자인", text: "특유의 각진 실루엣, 외부로 노출된 도어 힌지, 상징적인 스페어타이어 커버 등 G-Class만의 헤리티지 디자인 요소가 현대적인 감각과 만나 강렬한 카리스마를 발산합니다." },
                 { title: "반전의 럭셔리 인테리어", text: "터프한 외관과 상반되는 실내는 최고급 소재와 장인의 수작업으로 완성되었습니다. 최신 MBUX 인포테인먼트 시스템과 와이드 스크린 콕핏이 오프로더 안에서도 최상의 디지털 편의성을 제공합니다." }
             ]
+        },
+        'EQ "바이탈(Vital) 클래스"': {
+            subtitle: "교감하는 바이오 에너지 모빌리티",
+            desc: "지능형 생체 연결 기술을 탑재한 미래형 바이오 컨셉 세단. 운전자의 미세한 생체 파동과 감정 상태를 분석하여 최상의 치유 환경을 제공하며, 레벨 5 완전 자율주행과 연동되는 혁신적인 무결점 탑승자 안심 설계가 적용되었습니다.",
+            features: [
+                { title: "바이오 피드백 시트 시스템", text: "운전자의 심박수와 호흡, 스트레스 수치를 감지하여 실시간으로 요추 완화 롤러 마사지 및 미세 파동 음악을 매칭 제공합니다." },
+                { title: "인텔리전트 자율 구조 모드", text: "탑승자의 갑작스러운 의료 응급 사태 시, 차량 스스로 비상 구급 신호를 인근 의료 기관으로 송출하고 완전 자율 주행 상태로 직행 응급실로 긴급 이송합니다." }
+            ]
+        },
+        'G- "모프(Morph) 클래스"': {
+            subtitle: "지형지물에 능동적으로 반응하는 트랜스포머 SUV",
+            desc: "어떠한 한계도 모르는 능동형 변형 차체 기술이 탑재된 미래 오프로더의 정점. 주행 노면 상태와 기상 조건에 따라 휠베이스와 차체 스포일러 패널의 두께 및 구조가 실시간으로 변하여 극한의 기동성을 발휘합니다.",
+            features: [
+                { title: "액티브 에어로 다이내믹 패널", text: "고속 도로 진입 시 유선형 형태로 전후면 차체 플랩이 길어지고 넓어져 저항을 최소화하고 주행 효율성을 극대화합니다." },
+                { title: "가변 트랙터 오프로드 모드", text: "극도로 험난한 진흙, 모래, 사막, 바위 구간 진입 시 휠 바디 지지대가 능동적으로 조율되어 최상의 접지 마찰력을 유지합니다." }
+            ]
         }
     };
 
@@ -427,7 +451,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (detailModal) {
         document.querySelectorAll('.model-card').forEach(card => {
             card.addEventListener('click', (e) => {
-                const modelName = card.querySelector('h3').innerText.trim();
+                const h3 = card.querySelector('h3');
+                if (!h3) return;
+                const modelName = h3.innerText.trim();
                 const data = modelDetails[modelName];
                 
                 if (data) {
@@ -444,11 +470,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     document.getElementById('detail-features').innerHTML = featuresHtml;
                     detailModal.classList.add('active');
+                    detailModal.style.display = 'flex'; // 강제 디스플레이 보장
                     
+                    if (window.applyTranslation) window.applyTranslation(localStorage.getItem('site_lang') || 'KO');
+
                     const tdModel = document.getElementById('td-model');
                     if(tdModel) {
+                        let valToSelect = modelName;
+                        if (modelName.includes("바이탈")) valToSelect = "Vital-Class";
+                        if (modelName.includes("모프")) valToSelect = "Morph-Class";
                         Array.from(tdModel.options).forEach(opt => {
-                            if(opt.value === modelName) opt.selected = true;
+                            if(opt.value === valToSelect) opt.selected = true;
                         });
                     }
                 }
@@ -458,6 +490,8 @@ document.addEventListener('DOMContentLoaded', () => {
         closeDetailBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 detailModal.classList.remove('active');
+                detailModal.style.display = 'none';
+                
                 // 시승 신청하기 버튼을 눌렀을 경우를 위한 스크롤
                 if(btn.tagName.toLowerCase() === 'a' && btn.getAttribute('href') === '#test-drive') {
                     const testDriveSection = document.getElementById('test-drive');
@@ -467,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. Notifications ---
+    // --- 9. Notifications ---
     const toast = document.getElementById('notification-toast');
     const toastText = document.querySelector('.toast-text');
 
@@ -480,5 +514,53 @@ document.addEventListener('DOMContentLoaded', () => {
         toastTimeout = setTimeout(() => {
             toast.classList.remove('show');
         }, 4000);
+    }
+
+    // --- 10. Scroll to Top Floating Button Logic ---
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // --- 11. Language Toggle Logic ---
+    const langToggleBtns = document.querySelectorAll('.btn-lang');
+    let currentLang = localStorage.getItem('site_lang') || 'KO';
+
+    // Set initial text
+    langToggleBtns.forEach(btn => {
+        btn.innerText = currentLang;
+    });
+
+    // Toggle event
+    langToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentLang = currentLang === 'KO' ? 'EN' : 'KO';
+            localStorage.setItem('site_lang', currentLang);
+            
+            langToggleBtns.forEach(b => b.innerText = currentLang);
+            
+            if (window.applyTranslation) {
+                window.applyTranslation(currentLang);
+            }
+        });
+    });
+
+    // Apply translations on load
+    if (window.applyTranslation) {
+        window.applyTranslation(currentLang);
     }
 });

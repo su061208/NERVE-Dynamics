@@ -16,13 +16,15 @@
             <div class="logo" style="letter-spacing: 0.05em; font-weight: 700;">NERVE Dynamics</div>
             <nav class="nav-links">
                 <a href="#home">HOME</a>
-                <a href="#models">MODELS</a>
+                <a href="#about">ABOUT</a>
+                <a href="#future-vision">MODELS</a>
                 <a href="#tech">TECH</a>
                 <a href="#finance">FINANCE</a>
                 <a href="#test-drive">TEST DRIVE</a>
-                <a href="#board">BOARD</a>
+                <a href="board.html">BOARD</a>
             </nav>
             <div class="nav-actions">
+                <button id="lang-toggle" class="btn-lang">KO</button>
                 <a href="#login" class="btn-login">LOGIN</a>
             </div>
         </div>
@@ -38,29 +40,142 @@
 
     <!-- Hero Section: Future Mobility Vision -->
     <section id="home" class="hero-section" style="position: relative; overflow: hidden;">
-        <video class="hero-video-bg" autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0; pointer-events: none;">
-            <source src="Main video.mp4" type="video/mp4">
+        <video class="hero-video-bg" autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 0; pointer-events: none;">
+            <source src="Serve video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(5,5,15,0.6) 0%, rgba(5,5,15,0.95) 100%); position: absolute; inset: 0; z-index: 1; pointer-events: none;"></div>
         <div class="hero-content fade-in-up" style="max-width: 1000px; padding-top: 5rem; position: relative; z-index: 2;">
             <span class="hero-kicker" style="color: #93c5fd; border-bottom-color: rgba(147,197,253,0.3);">NEXT-GEN LUXURY MOBILITY</span>
-            <h1 class="hero-title" style="font-size: 3.5rem; line-height: 1.3;">메르세데스-마이바흐<br><span style="font-weight: 300;">"라운지(Lounge) 클래스"</span></h1>
-            <p class="hero-subtitle" style="color: #cbd5e1; margin-bottom: 2rem;">완전 자율주행(Level 5)을 전제로 한 하이엔드 럭셔리 모델.<br>이동 수단을 넘어선 '프라이빗 라운지'의 공간으로 진화합니다.</p>
-            
-            <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 3.5rem; text-align: left;">
-                <div style="flex: 1; background: rgba(255,255,255,0.03); padding: 2rem; border-left: 2px solid #3b82f6; backdrop-filter: blur(10px);">
-                    <h4 style="color: #fff; margin-bottom: 0.8rem; font-weight: 400; font-size: 1.1rem;">공간의 재창조</h4>
-                    <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">운전석이 생략된 1열과 2열 시트가 마주 보게 회전합니다. 달리는 차량 안에서 가족과 다이닝을 즐기거나 완벽한 비즈니스 미팅을 진행하십시오.</p>
-                </div>
-                <div style="flex: 1; background: rgba(255,255,255,0.03); padding: 2rem; border-left: 2px solid #3b82f6; backdrop-filter: blur(10px);">
-                    <h4 style="color: #fff; margin-bottom: 0.8rem; font-weight: 400; font-size: 1.1rem;">스마트 글래스 & 홀로그램</h4>
-                    <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">차량의 모든 유리창이 투명도를 통제하는 스마트 윈도우로 작동합니다. 외부와 완벽히 단절된 프라이빗 영화관이나 AR 화상 회의실이 곧바로 펼쳐집니다.</p>
-                </div>
-            </div>
+            <h1 class="hero-title" style="font-size: 4rem; line-height: 1.2; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2rem;">NERVE Dynamics<br><span style="font-weight: 300; color: rgba(255,255,255,0.75);">&times; Mercedes-Benz</span></h1>
+            <p class="hero-subtitle" style="color: #cbd5e1; margin-bottom: 3.5rem;">완전 자율주행(Level 5)을 전제로 한 하이엔드 럭셔리 모델.<br>이동 수단을 넘어선 '프라이빗 라운지'의 공간으로 진화합니다.</p>
             
             <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="#models" class="btn-solid-white" style="padding: 1rem 2.5rem; border-radius: 2px;">현재 컬렉션 보기</a>
-                <a href="#future-vision" class="btn-primary-outline" style="padding: 1rem 2.5rem; border: 1px solid rgba(147,197,253,0.5); color: #93c5fd; border-radius: 2px;">다른 미래 모델 살펴보기</a>
+                <a href="#future-vision" class="btn-solid-white" style="padding: 1rem 2.5rem; border-radius: 2px;">미래 모빌리티 살펴보기</a>
+                <a href="#models" class="btn-primary-outline" style="padding: 1rem 2.5rem; border: 1px solid rgba(147,197,253,0.5); color: #93c5fd; border-radius: 2px;">기존 모델 라인업</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT: Partnership Section -->
+    <section id="about" style="background: linear-gradient(180deg, #05050f 0%, #0d0d1a 100%); color: #fff; padding: 9rem 2rem; box-sizing: border-box; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div style="max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+
+            <!-- Left: Visual Element -->
+            <div class="fade-in-left" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 420px;">
+                <!-- Ambient glow -->
+                <div style="position: absolute; width: 320px; height: 320px; background: radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 70%); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none;"></div>
+                <!-- Outer ring -->
+                <div style="width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(96,165,250,0.2); position: absolute; animation: pulse-ring 4s ease-in-out infinite;"></div>
+                <div style="width: 260px; height: 260px; border-radius: 50%; border: 1px solid rgba(96,165,250,0.12); position: absolute;"></div>
+                <!-- Center logo area -->
+                <div style="width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; position: relative; z-index: 1; box-shadow: 0 0 40px rgba(96,165,250,0.1);">
+                    <span style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: #60a5fa; text-transform: uppercase;">NERVE</span>
+                    <div style="width: 32px; height: 1px; background: linear-gradient(to right, #60a5fa, rgba(255,255,255,0.3));"></div>
+                    <span style="font-size: 0.55rem; font-weight: 500; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); text-transform: uppercase;">&#215; Mercedes&#8209;Benz</span>
+                </div>
+                <!-- Tech grid lines decoration -->
+                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, rgba(96,165,250,0.3));"></div>
+                <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(to top, transparent, rgba(96,165,250,0.3));"></div>
+                <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 1px; width: 60px; background: linear-gradient(to right, transparent, rgba(96,165,250,0.3));"></div>
+                <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); height: 1px; width: 60px; background: linear-gradient(to left, transparent, rgba(96,165,250,0.3));"></div>
+                <!-- Stat badges -->
+                <div style="position: absolute; top: 1.5rem; right: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.7rem 1rem; text-align: center;">
+                    <div style="font-size: 1.3rem; font-weight: 700; color: #60a5fa;">130+</div>
+                    <div style="font-size: 0.6rem; color: #94a3b8; letter-spacing: 0.1em; margin-top: 0.2rem;">YEARS HERITAGE</div>
+                </div>
+                <div style="position: absolute; bottom: 1.5rem; left: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.7rem 1rem; text-align: center;">
+                    <div style="font-size: 1.3rem; font-weight: 700; color: #60a5fa;">Lv.5</div>
+                    <div style="font-size: 0.6rem; color: #94a3b8; letter-spacing: 0.1em; margin-top: 0.2rem;">AUTONOMOUS</div>
+                </div>
+            </div>
+
+            <!-- Right: Brand Story -->
+            <div class="fade-in-right">
+                <span style="display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: #60a5fa; text-transform: uppercase; margin-bottom: 1.2rem;">THE PARTNERSHIP</span>
+                <h2 style="font-size: 2.6rem; font-weight: 700; line-height: 1.25; color: #ffffff; margin-bottom: 2rem; letter-spacing: -0.02em;">헤리티지와<br><span style="font-weight: 300; color: rgba(255,255,255,0.65);">미래 테크놀로지의 조우</span></h2>
+                <div style="width: 48px; height: 2px; background: linear-gradient(to right, #60a5fa, rgba(96,165,250,0.3)); margin-bottom: 2.5rem;"></div>
+                <p style="color: #94a3b8; font-size: 1rem; line-height: 1.9; font-weight: 300; margin-bottom: 1.8rem;">130년이 넘는 시간 동안 자동차의 역사를 정립해 온 <strong style="color: #e2e8f0; font-weight: 500;">Mercedes-Benz</strong>의 명품 장인 정신과 헤리티지, 그리고 인간의 생체 신호 및 신경망 역학을 모빌리티에 이식하는 <strong style="color: #e2e8f0; font-weight: 500;">NERVE Dynamics</strong>의 독점적 바이오 테크놀로지가 만났습니다.</p>
+                <p style="color: #94a3b8; font-size: 1rem; line-height: 1.9; font-weight: 300; margin-bottom: 3rem;">우리는 단순히 이동하는 기계를 만들지 않습니다. 완전 자율주행(Level 5) 시스템을 기반으로 운전자와 심리적·물리적으로 교감하는 EQ &lsquo;Vital&rsquo; 클래스, 그리고 지형에 맞추어 스스로 형태를 진화시키는 G- &lsquo;Morph&rsquo; 클래스는 두 브랜드의 철학이 구현된 궁극의 결과물입니다. 시대를 압서가는 럭셔리 모빌리티의 새로운 기준을 확인해 보십시오.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <div style="border-left: 2px solid rgba(96,165,250,0.4); padding-left: 1.2rem;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #fff;">2</div>
+                        <div style="font-size: 0.75rem; color: #64748b; letter-spacing: 0.05em; margin-top: 0.2rem;">전용 스펙 모델</div>
+                    </div>
+                    <div style="border-left: 2px solid rgba(96,165,250,0.4); padding-left: 1.2rem;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #fff;">100%</div>
+                        <div style="font-size: 0.75rem; color: #64748b; letter-spacing: 0.05em; margin-top: 0.2rem;">독점 콜라보</div>
+                    </div>
+                    <div style="border-left: 2px solid rgba(96,165,250,0.4); padding-left: 1.2rem;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #fff;">Lv.5</div>
+                        <div style="font-size: 0.75rem; color: #64748b; letter-spacing: 0.05em; margin-top: 0.2rem;">완전 자율주행</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        @keyframes pulse-ring {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            #about > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
+            #about > div > div:first-child { min-height: 280px !important; }
+        }
+    </style>
+
+    <!-- Future Vision Overview Section - THE MAIN FOCUS -->
+    <section id="future-vision" style="background: linear-gradient(180deg, #05050f 0%, #1a1a24 100%); color: #fff; padding: 8rem 2rem; box-sizing: border-box; width: 100%;">
+        <div style="max-width: 1200px; width: 100%; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="kicker text-gray" style="letter-spacing: 0.2em; color: #60a5fa;">FLAGSHIP PRE-ORDER</span>
+                <h2 class="text-white" style="font-size: 4.5rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.5rem; margin-bottom: 1.5rem; line-height: 1.1; text-shadow: 0 0 40px rgba(96, 165, 250, 0.3);">THE NEXT GENERATION<br>OF LUXURY</h2>
+                <div class="divider-center" style="width: 60px; height: 2px; background-color: #60a5fa; margin: 2rem auto; box-shadow: 0 0 10px #60a5fa;"></div>
+                <p style="color: #cbd5e1; font-size: 1.2rem; max-width: 700px; margin: 0 auto 4rem auto;">우리가 만들어갈 가장 완벽한 미래 모빌리티. 지금 사전 예약을 통해 가장 먼저 경험해 보십시오.</p>
+            </div>
+            
+            <!-- 1. Concept Cars -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; width: 100%; box-sizing: border-box;">
+                <!-- Vital Class -->
+                <div class="model-card fade-in-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; min-width: 0; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(96, 165, 250, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <!-- Image: full bleed, no padding -->
+                    <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; line-height: 0;">
+                        <img src="vital_class.jpg" alt="탑승자와 교감하는 바이탈 클래스 컨셉카" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease;">
+                    </div>
+                    <!-- Text + Buttons: padded -->
+                    <div style="padding: 2rem; text-align: center; word-break: keep-all;">
+                        <h3 class="text-white" style="font-size: 1.8rem; margin-bottom: 1rem;">EQ "바이탈(Vital) 클래스"</h3>
+                        <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 2rem;">운전자와 심리적, 물리적으로 교감하는 바이오 특화 모델. 시트와 스티어링 센서가 생체 데이터를 실시간 분석하여 스트레스 해소를 위한 조명/향기를 조율하며, 응급 상황 시 자율구조 프로토콜을 가동합니다.</p>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <div class="card-action btn-solid-white" style="padding: 0.8rem 2rem; border-radius: 4px; color: #000; cursor: pointer;">
+                                <span class="view-btn">자세히 보기</span>
+                            </div>
+                            <div class="btn-primary-outline" style="padding: 0.8rem 2rem; border: 1px solid #60a5fa; color: #60a5fa; border-radius: 4px; cursor: pointer;" onclick="document.getElementById('test-drive').scrollIntoView({behavior: 'smooth'})">
+                                <span>사전 예약하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Morph Class -->
+                <div class="model-card fade-in-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; min-width: 0; transition: transform 0.3s ease, box-shadow 0.3s ease; transition-delay: 0.2s;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(96, 165, 250, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <!-- Image: full bleed, no padding -->
+                    <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; line-height: 0;">
+                        <img src="morph_class.jpg" alt="형태가 변하는 트랜스포머 SUV 모프 클래스 컨셉카" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease;">
+                    </div>
+                    <!-- Text + Buttons: padded -->
+                    <div style="padding: 2rem; text-align: center; word-break: keep-all;">
+                        <h3 class="text-white" style="font-size: 1.8rem; margin-bottom: 1rem;">G- "모프(Morph) 클래스"</h3>
+                        <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 2rem;">지형과 주행 상황에 맞추어 형태가 능동적으로 진화하는 트랜스포머 SUV. 고속 주행 시 유선형 형태로 차체 패널이 연장되며, 험로에선 액티브 에어로 다이내믹 패널과 결합하여 접지력을 극대화합니다.</p>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <div class="card-action btn-solid-white" style="padding: 0.8rem 2rem; border-radius: 4px; color: #000; cursor: pointer;">
+                                <span class="view-btn">자세히 보기</span>
+                            </div>
+                            <div class="btn-primary-outline" style="padding: 0.8rem 2rem; border: 1px solid #60a5fa; color: #60a5fa; border-radius: 4px; cursor: pointer;" onclick="document.getElementById('test-drive').scrollIntoView({behavior: 'smooth'})">
+                                <span>사전 예약하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -77,7 +192,7 @@
             <div class="legacy-visual fade-in-left">
                 <div class="giant-year">1886</div>
                 <div class="heritage-gallery" style="height:350px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
-                    <div class="karl-img"></div>
+                    <div class="karl-img" role="img" aria-label="칼 벤츠의 흑백 역사적인 인물 사진"></div>
                     <div class="car-img-overlay"></div>
                 </div>
             </div>
@@ -96,7 +211,7 @@
             <div class="models-grid">
                 <div class="model-card fade-in-up">
                     <div class="model-img-wrap">
-                        <div class="model-img placeholder-sedan"></div>
+                        <div class="model-img placeholder-sedan" role="img" aria-label="우아한 디자인의 벤츠 E-Class 세단 이미지"></div>
                     </div>
                     <div class="model-info">
                         <h3>E-Class</h3>
@@ -109,7 +224,7 @@
                 </div>
                 <div class="model-card fade-in-up" style="transition-delay: 0.1s;">
                     <div class="model-img-wrap">
-                        <div class="model-img placeholder-eq"></div>
+                        <div class="model-img placeholder-eq" role="img" aria-label="미래지향적인 순수 전기차 EQS 이미지"></div>
                     </div>
                     <div class="model-info">
                         <h3>EQS</h3>
@@ -122,7 +237,7 @@
                 </div>
                 <div class="model-card fade-in-up" style="transition-delay: 0.2s;">
                     <div class="model-img-wrap">
-                        <div class="model-img placeholder-sedan-s"></div>
+                        <div class="model-img placeholder-sedan-s" role="img" aria-label="최고급 대형 세단 S-Class 이미지"></div>
                     </div>
                     <div class="model-info">
                         <h3>S-Class</h3>
@@ -135,7 +250,7 @@
                 </div>
                 <div class="model-card fade-in-up" style="transition-delay: 0.3s;">
                     <div class="model-img-wrap">
-                        <div class="model-img placeholder-suv"></div>
+                        <div class="model-img placeholder-suv" role="img" aria-label="거친 오프로더 스타일의 G-Class 이미지"></div>
                     </div>
                     <div class="model-info">
                         <h3>G-Class</h3>
@@ -150,59 +265,29 @@
         </div>
     </section>
 
-    <!-- Future Vision Overview Section -->
-    <section id="future-vision" class="models-section" style="background: var(--color-dark); color: var(--color-white); padding-bottom: 8rem;">
-        <div class="section-container">
-            <div class="section-header fade-in text-center">
-                <span class="kicker text-gray">CONCEPT LINEUP</span>
-                <h2 class="text-white">미래 모빌리티의 청사진</h2>
-                <div class="divider-center" style="width: 40px; height: 1px; background-color: rgba(255,255,255,0.2); margin: 2rem auto;"></div>
-            </div>
-            
-            <div class="models-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <!-- Vital Class -->
-                <div class="model-card fade-in-up">
-                    <div class="concept-img-container">
-                        <div class="model-img" style="background-image: url('vital_class.jpg');"></div>
-                        <div class="concept-overlay"></div>
-                        <div class="concept-label" style="color: #ffffff; text-shadow: 0 4px 15px rgba(0,0,0,0.8); font-size: 1.5rem;">VITAL CLASS</div>
-                    </div>
-                    <div class="model-info">
-                        <h3 class="text-white">EQ "바이탈(Vital) 클래스"</h3>
-                        <p style="color: #94a3b8; line-height: 1.6;">운전자와 심리적, 물리적으로 교감하는 바이오 특화 모델. 시트와 스티어링 센서가 생체 데이터를 실시간 분석하여 스트레스 해소를 위한 조명/향기를 조율하며, 응급 상황 시 자율구조 프로토콜을 가동합니다.</p>
-                    </div>
-                </div>
-                <!-- Morph Class -->
-                <div class="model-card fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="concept-img-container">
-                        <div class="model-img" style="background-image: url('morph_class.jpg');"></div>
-                        <div class="concept-overlay"></div>
-                        <div class="concept-label" style="color: #ffffff; text-shadow: 0 4px 15px rgba(0,0,0,0.8); font-size: 1.5rem;">MORPH CLASS</div>
-                    </div>
-                    <div class="model-info">
-                        <h3 class="text-white">G- "모프(Morph) 클래스"</h3>
-                        <p style="color: #94a3b8; line-height: 1.6;">지형과 주행 상황에 맞추어 형태가 능동적으로 진화하는 트랜스포머 SUV. 고속 주행 시 유선형 형태로 차체 패널이 연장되며, 험로에선 액티브 에어로 다이내믹 패널과 결합하여 접지력을 극대화합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Tech & Innovation -->
+
+    <!-- Unified Tech & Robotics Engineering Section -->
     <section id="tech" class="tech-section">
         <div class="section-container split-layout">
             <div class="split-image fade-in-left">
-                <div class="tech-img"></div>
+                <div class="tech-img" style="background-image: url('benz_tech_mbux_1778467379473.png'); filter: contrast(1.1) grayscale(20%); border-radius: 4px;" role="img" aria-label="첨단 로봇소프트웨어 기술이 적용된 하이퍼스크린 디스플레이"></div>
             </div>
             <div class="split-content fade-in-right">
-                <span class="kicker">TECHNOLOGY</span>
-                <h2 class="split-title">Intuitive Digital<br>Luxury</h2>
+                <span class="kicker">ROBOTICS SOFTWARE & TECHNOLOGY</span>
+                <h2 class="split-title" style="font-size: 2.8rem; line-height: 1.3;">'논리의 의도'를 담은<br>무결점 제어 철학</h2>
                 <div class="divider-left"></div>
+                
+                <p class="split-text" style="margin-bottom: 1.5rem;">로봇소프트웨어 공학의 전문성을 바탕으로 한 자율주행 모빌리티 제어 알고리즘. 단순한 하드웨어의 움직임을 넘어, 탑승자의 생체 데이터와 도로 환경을 실시간으로 분석하고 예측하는 완벽한 인공지능 협업 시스템을 설계합니다.</p>
+                
                 <p class="split-text">압도적인 크기의 고해상도 하이퍼스크린과 지능형 AI가 결합된 MBUX 인포테인먼트. 사용자의 습관을 학습하여 드라이빙의 모든 순간을 직관적이고 완벽하게 제어합니다.</p>
-                <ul class="feature-list">
+                
+                <ul class="feature-list" style="margin-top: 2rem;">
+                    <li>하드웨어 분석 및 정밀 PLC 제어 시스템</li>
+                    <li>동적 환경에서의 실시간 센서 데이터 퓨전</li>
+                    <li>AI 협업을 통한 레벨 5 자율주행 모듈 최적화</li>
                     <li>초개인화된 생체 인식 프로필 로딩</li>
                     <li>헤드업 디스플레이 연동형 AR 내비게이션</li>
-                    <li>무결점 자율주행 보조 시스템(ADAS)</li>
                 </ul>
             </div>
         </div>
@@ -237,34 +322,7 @@
         </div>
     </section>
 
-    <!-- Community & Board Section -->
-    <section id="board" class="board-section">
-        <div class="section-container">
-            <div class="section-header fade-in text-left">
-                <span class="kicker">THE CLUB</span>
-                <h2>오너들을 위한 프라이빗 라운지</h2>
-                <div class="divider-left"></div>
-            </div>
 
-            <div class="board-wrapper fade-in">
-                <div class="board-controls">
-                    <div class="tag-filters">
-                        <button class="tag-btn active" data-filter="all">전체보기</button>
-                        <button class="tag-btn" data-filter="electric">전기차(EQ)</button>
-                        <button class="tag-btn" data-filter="lifestyle">라이프스타일</button>
-                        <button class="tag-btn" data-filter="service">서비스/관리</button>
-                    </div>
-                    <button class="btn-dark" id="open-write-modal" style="padding: 0.6rem 1.5rem; border-radius: 2px;">글쓰기</button>
-                </div>
-
-                <div class="board-list" id="board-list" style="margin-top: 2rem; min-height: 200px;">
-                    <!-- Skeletons will be overwritten by JS or shown as fallback -->
-                    <div class="post-item loading-skeleton"></div>
-                    <div class="post-item loading-skeleton"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Financial Calculator Section -->
     <section id="finance" class="finance-section">
@@ -292,6 +350,8 @@
                             <option value="150000000">S-Class (₩ 150,000,000 ~)</option>
                             <option value="120000000">EQS (₩ 120,000,000 ~)</option>
                             <option value="200000000">G-Class (₩ 200,000,000 ~)</option>
+                            <option value="350000000">EQ 바이탈 클래스 (₩ 350,000,000 ~)</option>
+                            <option value="450000000">G 모프 클래스 (₩ 450,000,000 ~)</option>
                         </select>
                     </div>
                     <div class="form-row">
@@ -340,6 +400,8 @@
                         <option value="S-Class">S-Class</option>
                         <option value="EQS">EQS</option>
                         <option value="G-Class">G-Class</option>
+                        <option value="Vital-Class">EQ 바이탈 클래스</option>
+                        <option value="Morph-Class">G 모프 클래스</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -350,6 +412,15 @@
                     <button type="submit" class="btn-primary" style="width: 100%; padding: 1.2rem; justify-content: center;">시승 신청 완료하기</button>
                 </div>
             </form>
+
+            <!-- Quick Link to Private Lounge -->
+            <div style="margin-top: 5rem; text-align: center; border-top: 1px solid var(--color-border); padding-top: 4rem;" class="fade-in-up">
+                <p style="color: var(--color-grey); font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 300;">이미 차량을 출고하신 오너이신가요? 프라이빗 커뮤니티 공간에서 소통해 보세요.</p>
+                <a href="board.html" class="btn-dark" style="display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; text-decoration: none; font-size: 0.9rem; font-weight: 600; border-radius: 2px; gap: 0.8rem; letter-spacing: 0.05em; transition: var(--transition-fast);">
+                    <span>오너들을 위한 프라이빗 라운지 가기</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -372,47 +443,7 @@
         </div>
     </div>
 
-    <!-- Write Post Modal -->
-    <div id="write-modal" class="custom-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>새 글 작성</h3>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <form id="write-form">
-                    <div class="form-group">
-                        <label>카테고리</label>
-                        <select id="doc-category">
-                            <option value="lifestyle">라이프스타일</option>
-                            <option value="electric">전기차(EQ)</option>
-                            <option value="service" selected>서비스/관리</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>제목</label>
-                        <input type="text" id="doc-title" required placeholder="제목을 입력하세요">
-                    </div>
-                    <div class="form-group">
-                        <label>작성자</label>
-                        <input type="text" id="doc-author" required placeholder="이름 또는 닉네임">
-                    </div>
-                    <div class="form-group">
-                        <label>비밀번호 (게시물 삭제 시 필요)</label>
-                        <input type="password" id="doc-password" required placeholder="비밀번호 4자리 숫자">
-                    </div>
-                    <div class="form-group">
-                        <label>내용</label>
-                        <textarea id="doc-content" rows="6" required placeholder="내용을 입력하세요"></textarea>
-                    </div>
-                    <div class="form-actions" style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
-                        <button type="button" class="btn-dark close-modal" style="background:#e4e4e7; color:#050505;">취소</button>
-                        <button type="submit" class="btn-dark">등록하기</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
 
     <footer id="footer">
         <div class="footer-container">
@@ -436,90 +467,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="lang.js?v=20260511"></script>
     <script src="main.js?v=20260511"></script>
-    
-    <!-- Bulletproof Inline Modal Logic -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modelDetailsData = {
-                "E-Class": {
-                    subtitle: "시간을 앞서가는 지능형 럭셔리 세단",
-                    desc: "새로운 E-Class는 단순한 이동 수단을 넘어, 당신과 완벽하게 교감하는 디지털 파트너입니다. 메르세데스-벤츠 고유의 클래식한 우아함에 시대를 선도하는 최첨단 디지털 혁신을 결합하여, 매 순간 당신에게 꼭 맞춘 특별한 드라이빙 경험을 선사합니다.",
-                    features: [
-                        { title: "MBUX 슈퍼스크린 & 초개인화 경험", text: "조수석까지 매끄럽게 이어지는 압도적인 크기의 글래스 디스플레이가 미래지향적인 실내를 완성합니다. 인공지능이 운전자의 습관을 스스로 학습하여 자주 쓰는 기능을 자동화하는 '루틴(Routines)' 기능으로 당신만의 E-Class를 완성해 보세요." },
-                        { title: "시선을 사로잡는 시그니처 디자인", text: "우아하게 흐르는 루프 라인과 메르세데스-벤츠의 삼각별을 형상화한 독창적인 리어램프가 결합하여 언제 어디서나 독보적인 존재감을 드러냅니다." },
-                        { title: "공감각적 엔터테인먼트 룸", text: "부메스터® 4D 서라운드 사운드 시스템과 음악의 비트에 맞춰 반응하는 액티브 앰비언트 라이트가 주행의 순간을 하나의 예술 공연으로 탈바꿈시킵니다." },
-                        { title: "효율과 퍼포먼스의 조화", text: "48V 마일드 하이브리드 시스템이 적용되어 한층 부드러운 엔진 시동과 정숙한 주행은 물론, 뛰어난 연료 효율성까지 제공합니다." }
-                    ]
-                },
-                "EQS": {
-                    subtitle: "내일을 향한 감각적인 움직임",
-                    desc: "전기차 시대가 나아가야 할 럭셔리의 새로운 기준을 제시합니다. 공기역학적 디자인의 정수와 혁신적인 전동화 기술이 만나, 고요하면서도 폭발적인 퍼포먼스를 완성했습니다. 내연기관의 한계를 넘어선 진보된 럭셔리를 직접 경험해 보십시오.",
-                    features: [
-                        { title: "원-보우(One-Bow) 디자인과 공기역학의 정점", text: "활을 연상시키는 유려한 곡선의 실루엣은 양산차 최고 수준의 공기저항계수를 달성했습니다. 이는 바람의 저항을 최소화하여 압도적인 1회 충전 주행거리와 경이로운 실내 정숙성을 가능하게 합니다." },
-                        { title: "MBUX 하이퍼스크린", text: "실내 전체를 가로지르는 거대한 곡선형 패널이 마치 우주선에 탑승한 듯한 감각을 선사합니다. 제로-레이어(Zero-layer) 인터페이스를 통해 복잡한 메뉴 이동 없이 필요한 기능을 직관적으로 제어할 수 있습니다." },
-                        { title: "구름 위를 달리는 듯한 승차감", text: "지능형 에어매틱(AIRMATIC) 서스펜션이 노면 상황을 즉각적으로 파악하여 최적의 승차감을 유지하며, 리어 액슬 스티어링은 대형 세단임에도 콤팩트카처럼 민첩한 코너링과 주차 편의성을 제공합니다." }
-                    ]
-                },
-                "S-Class": {
-                    subtitle: "세상을 이끄는 리더를 위한 궁극의 안식처",
-                    desc: "S-Class는 단순한 자동차를 넘어선 하나의 상징이자, 성공을 향한 여정에 동행하는 최고의 파트너입니다. 타협하지 않는 장인정신과 최첨단 안전 기술이 빚어낸 독보적인 승차감은 당신에게 완벽한 휴식과 새로운 영감을 제공합니다.",
-                    features: [
-                        { title: "퍼스트 클래스의 여유, 뒷좌석 컴포트", text: "이그제큐티브 시트와 쇼퍼 패키지를 통해 뒷좌석 탑승자에게 넓고 안락한 공간을 제공합니다. 섬세한 마사지 기능과 최상급 나파 가죽의 질감이 이동하는 모든 순간을 완벽한 휴식 시간으로 만들어 줍니다." },
-                        { title: "오감을 만족시키는 경이로운 정숙성", text: "외부의 소음과 진동을 완벽에 가깝게 차단하는 차체 설계로, 속도를 체감하기 어려울 만큼 고요하고 평온한 실내 환경을 유지합니다." },
-                        { title: "타협 없는 혁신적 안전 기술", text: "찰나의 순간까지 예측하는 드라이빙 어시스턴스 패키지와 100만 개 이상의 픽셀로 야간 시야를 정밀하게 밝히는 디지털 라이트가 당신과 소중한 사람을 가장 안전하게 보호합니다." }
-                    ]
-                },
-                "G-Class": {
-                    subtitle: "전설은 길을 가리지 않는다",
-                    desc: "수십 년의 시간 동안 변함없이 지켜온 독보적인 아이덴티티. G-Class는 거친 자연과 도심을 아우르며, 어떠한 험로에서도 한계 없는 퍼포먼스를 발휘합니다. 거친 본성과 럭셔리한 실내가 완벽하게 공존하는 유일무이한 오프로더의 감성을 느껴보십시오.",
-                    features: [
-                        { title: "타협을 모르는 오프로드 DNA", text: "3개의 100% 디퍼렌셜 락, 로우 레인지 기어, 그리고 견고한 사다리형 프레임 바디가 결합하여 가파른 경사와 험난한 지형도 거침없이 주파하는 궁극의 오프로드 성능을 자랑합니다." },
-                        { title: "시간을 초월한 아이코닉 디자인", text: "특유의 각진 실루엣, 외부로 노출된 도어 힌지, 상징적인 스페어타이어 커버 등 G-Class만의 헤리티지 디자인 요소가 현대적인 감각과 만나 강렬한 카리스마를 발산합니다." },
-                        { title: "반전의 럭셔리 인테리어", text: "터프한 외관과 상반되는 실내는 최고급 소재와 장인의 수작업으로 완성되었습니다. 최신 MBUX 인포테인먼트 시스템과 와이드 스크린 콕핏이 오프로더 안에서도 최상의 디지털 편의성을 제공합니다." }
-                    ]
-                }
-            };
-            
-            const detailModal = document.getElementById('detail-modal');
-            const closeDetailBtns = document.querySelectorAll('.detail-close');
-            const cards = document.querySelectorAll('.model-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    const h3 = card.querySelector('h3');
-                    if (!h3) return;
-                    const modelName = h3.innerText.trim();
-                    const data = modelDetailsData[modelName];
-                    
-                    if (data && detailModal) {
-                        document.getElementById('detail-model-name').innerText = modelName;
-                        document.getElementById('detail-subtitle').innerText = data.subtitle;
-                        document.getElementById('detail-desc').innerText = data.desc;
-                        
-                        const featuresHtml = data.features.map(f => `
-                            <div style="margin-bottom: 2rem;">
-                                <h5 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #111;">${f.title}</h5>
-                                <p style="font-size: 1rem; color: #555; line-height: 1.7;">${f.text}</p>
-                            </div>
-                        `).join('');
-                        
-                        document.getElementById('detail-features').innerHTML = featuresHtml;
-                        detailModal.classList.add('active');
-                        detailModal.style.display = 'flex'; // 강제 디스플레이 보장
-                    }
-                });
-            });
-            
-            closeDetailBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    if (detailModal) {
-                        detailModal.classList.remove('active');
-                        detailModal.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+        <!-- Scroll to Top Button -->
+    <div id="scroll-to-top" class="scroll-top-btn">
+        <span>↑</span>
+    </div>
+
 </body>
 </html>

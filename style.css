@@ -17,7 +17,7 @@
 
 /* Reset and Defaults */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
     font-family: var(--font-main);
@@ -50,6 +50,9 @@ p { font-weight: 300; font-size: 1.05rem; }
 /* Buttons Strategy - Exuding Luxury */
 .btn-login { background: var(--color-black); color: var(--color-white); padding: 0.6rem 2rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: var(--transition-fast); }
 .btn-login:hover { background: #333; }
+
+.btn-lang { background: transparent; border: 1px solid var(--color-black); color: var(--color-black); padding: 0.6rem 1.2rem; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: var(--transition-fast); cursor: pointer; margin-right: 0.5rem; }
+.btn-lang:hover { background: var(--color-black); color: var(--color-white); }
 
 .btn-primary-outline { display: inline-block; padding: 1.2rem 3rem; background: transparent; border: 1px solid rgba(255,255,255,0.5); color: var(--color-white); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; text-decoration: none; transition: var(--transition-fast); }
 .btn-primary-outline:hover { background: var(--color-white); color: var(--color-black); }
@@ -89,10 +92,10 @@ p { font-weight: 300; font-size: 1.05rem; }
 .model-card { background: transparent; cursor: pointer; }
 .model-img-wrap { overflow: hidden; border-radius: 4px; margin-bottom: 1.5rem; position: relative; aspect-ratio: 16/9; }
 .model-img { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: var(--transition-slow); }
-.placeholder-sedan { background-image: url('benz_hero_sedan_1778467347199.png'); filter: grayscale(10%) contrast(1.05); }
-.placeholder-eq { background-image: url('benz_hero_sedan_1778467347199.png'); filter: hue-rotate(-20deg) brightness(0.9); }
-.placeholder-sedan-s { background-image: url('benz_hero_sedan_1778467347199.png'); filter: grayscale(40%) sepia(10%); }
-.placeholder-suv { background-image: url('benz_hero_sedan_1778467347199.png'); filter: contrast(1.1) brightness(0.95); }
+.placeholder-sedan { background-image: url('e_class.png'); }
+.placeholder-eq { background-image: url('eqs.png'); }
+.placeholder-sedan-s { background-image: url('s_class.png'); }
+.placeholder-suv { background-image: url('g_class.png'); }
 .model-card:hover .model-img { transform: scale(1.05); }
 .model-info h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 0.2rem; }
 .model-info p { color: #71717a; font-size: 0.95rem; margin-bottom: 1rem; }
@@ -201,6 +204,10 @@ footer { background: var(--color-white); padding: 4rem 2rem 2rem; border-top: 1p
 .is-visible { opacity: 1; transform: translate(0); }
 
 /* Responsive Adjustments */
+@media (max-width: 1150px) {
+    .nav-links { gap: 1.5rem; }
+    .nav-container { padding: 0 1rem; }
+}
 @media (max-width: 1024px) {
     .legacy-container, .split-layout { grid-template-columns: 1fr; gap: 4rem; }
     .giant-year { top:-40px; left:-20px; font-size: 10rem; }
@@ -208,6 +215,13 @@ footer { background: var(--color-white); padding: 4rem 2rem 2rem; border-top: 1p
     .values-grid { grid-template-columns: 1fr; }
     .footer-container { grid-template-columns: 1fr; }
     .board-controls { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    
+    /* Fix for Navbar overlap on tablet screens */
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.75rem; letter-spacing: 0.05em; }
+    .logo { font-size: 1rem; }
+    .btn-login { padding: 0.5rem 1rem; font-size: 0.7rem; }
+    .btn-lang { padding: 0.5rem 0.8rem; font-size: 0.7rem; margin-right: 0.3rem; }
 }
 @media (max-width: 768px) {
     h1 { font-size: 2.2rem; }
@@ -215,10 +229,12 @@ footer { background: var(--color-white); padding: 4rem 2rem 2rem; border-top: 1p
     .section-container { padding: 4rem 1.2rem; }
     
     /* Modern Scrollable Mobile Nav */
-    .nav-container { flex-wrap: wrap; }
-    .nav-links { display: flex; width: 100%; overflow-x: auto; white-space: nowrap; margin-top: 1rem; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .nav-container { flex-wrap: wrap; justify-content: center; padding-top: 0.5rem; }
+    .logo { width: 100%; text-align: center; margin-bottom: 0.5rem; }
+    .nav-links { display: flex; width: 100%; overflow-x: auto; white-space: nowrap; margin-top: 0; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; }
     .nav-links::-webkit-scrollbar { display: none; }
-    .nav-actions { display: none; }
+    .nav-actions { display: flex; width: 100%; justify-content: center; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+    .navbar { padding: 0.5rem 0; }
     
     /* Modals and Forms scaling */
     .premium-form { padding: 1.5rem; }
@@ -335,3 +351,52 @@ footer { background: var(--color-white); padding: 4rem 2rem 2rem; border-top: 1p
 .close-modal { cursor: pointer; font-size: 1.5rem; color: var(--color-grey); transition: var(--transition-fast); }
 .close-modal:hover { color: var(--color-black); }
 .modal-body { padding: 2rem; }
+
+/* Scroll to Top Button - Luxury Floating Design */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.scroll-top-btn span {
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.scroll-top-btn:hover span {
+    transform: translateY(-3px);
+}
